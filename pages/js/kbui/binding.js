@@ -118,12 +118,12 @@ addInitializer('connected', () => {
   
   // Main board
   ACTION.addContextMenu('[data-bound="main"]', [
-    { name: 'Clear / Disable', trigger: 'key-assign-kcno' },
-    { name: 'Make transparent', trigger: 'key-assign-transparent' },
-    { name: 'Assign & edit macro', trigger: 'key-assign-macro' },
-    { name: 'Assign & edit tapdance', trigger: 'key-assign-tapdance' },
-    { name: 'Enter key by code or value', trigger: 'key-assign-manual' },
-    { name: 'Revert change', trigger: 'key-revert' },
+    { name: '清除按键', trigger: 'key-assign-kcno' },
+    { name: '设为透明', trigger: 'key-assign-transparent' },
+    { name: '分配和编辑宏', trigger: 'key-assign-macro' },
+    { name: '分配和编TD键', trigger: 'key-assign-tapdance' },
+    { name: '输入键码，回车确定', trigger: 'key-assign-manual' },
+    { name: '恢复更改', trigger: 'key-revert' },
   ]);
 
   // Combo keys: input

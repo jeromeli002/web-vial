@@ -353,16 +353,6 @@
          "KC_NO"
       ]
    ],
-   "cosmetic" : {
-      "layer" : {
-         "0" : "Default",
-         "1" : "NAS2",
-         "15" : "Mouse",
-         "2" : "Fn,Nav",
-         "4" : "NAS",
-         "5" : "10Key"
-      }
-   },
    "custom_keycodes" : [
       {
          "shortName": "Left\nDPI +",

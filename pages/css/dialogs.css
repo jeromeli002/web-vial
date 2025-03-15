@@ -175,7 +175,9 @@
   z-index: 950;
   flex-flow: column;
 }
-
+.small-mainboard{
+  position: fixed;
+}
 #float-tapdance {
   height: 280px;
 }

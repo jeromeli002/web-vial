@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KeyBard interface</title>
+    <title>JLKB</title>
     <!-- Third party scripts and stylesheets -->
     <script type="text/javascript" src="thirdparty/xzwasm.min.js"></script>
 
@@ -95,162 +95,174 @@
       <div id="topbar-container">
         <div id="topbar">
           <div class="dropdown menu menu-top">
-  MENU
+  更多
   <div class="dropdown-content">
   <label>
-    <input type="checkbox" class="check" data-toggle-name="do-instant" data-default="true" data-toggle="instant" data-extra="hideCommit"/>
-    Instant pushes (akin to Vial)
+ <input type="checkbox" class="check" data-toggle-name="do-instant" data-default="true" data-toggle="instant" data-extra="hideCommit"/>
+ 实时保存并应用
+</label>
+<label>
+ <input type="checkbox" class="check" data-toggle-name="do-typebind" data-default="false" data-toggle="typebind"/>
+ 读取键盘输入值
+</label>
+<label class="menuitem dropdown">
+ 快速输入 >
+ <div class="dropdown-content">
+  <label data-serial="colfirst">
+   先col后row
+  </label>
+  <label data-serial="rowfirst">
+   先row后col
+  </label>
+  <label data-serial="svalbykey">
+   按按键方向
+  </label>
+ </div>
+</label>
+<label class="menuitem dropdown">
+ 国际键盘 >
+ <div id="menu-international" class="dropdown-content">
+ </div>
+</label>
+<label data-open="#float-qmksettings" id="open-qmk" class="connect-enable">
+ QMK 设置
+</label>
+<label data-open="#float-matrix-tester" class="connect-enable">
+ 打开矩阵测试器
+</label>
+<hr>
+<label class="menuitem dropdown">
+ 历史记录 >
+ <div class="dropdown-content" id="history-kbis">
+ </div>
+</label>
+  <label class="menuitem dropdown">
+ 示例键盘 >
+ <div class="dropdown-content" id="sample-kbis">
+ </div>
+</label>
+<label class="menuitem dropdown">
+ 上传和下载 >
+ <div class="dropdown-content">
+  <label id="download-kbi" class="connect-enable">
+   下载kbi文件 >
+  </label>
+  <label id="download-kbi-nomacro" class="connect-enable">
+   下载无宏kbi文件 >
+  </label>
+  <label id="download-vil" class="connect-enable">
+   下载vil文件 >
+  </label>
+  <label id="download-vil-nomacro" class="connect-enable">
+   下载无宏vil文件 >
+  </label>
+  <label id="upload-file-float">
+   上传kbi或vil文件 >
+  </label>
+ </div>
+</label>
+<hr>
+<label class="menuitem dropdown" for="">
+ 开发者选项 >
+ <div class="dropdown-content">
+  <label>
+   <input type="checkbox" class="check" data-toggle-name="do-disable-rclicks" data-default="false" data-toggle="disableRightClicks"/>
+   禁用上下文菜单（启用“检查”等）
   </label>
   <label>
-    <input type="checkbox" class="check" data-toggle-name="do-typebind" data-default="false" data-toggle="typebind"/>
-    Typing binds a key.
+   <input type="checkbox" class="check" data-toggle-name="do-playback" data-default="false" data-toggle="playback"/>
+   播放录制。（覆盖录制）
   </label>
-  <label class="menuitem dropdown">
-    &gt; Serial Assignment
-    <div class="dropdown-content">
-      <label data-serial="colfirst">
-        Down columns then rows (Sval: By cluster)
-      </label>
-      <label data-serial="rowfirst">
-        Across rows then down columns.
-      </label>
-      <label data-serial="svalbykey">
-        Svalboard by key direction.<br>
-        Won't work w/ other boards.
-      </label>
-    </div>
+  <label>
+   <input type="checkbox" class="check" data-toggle-name="do-record" data-default="false" data-toggle="record"/>
+   录制以供播放。（需要关闭播放）
   </label>
-  <label class="menuitem dropdown">
-    &gt; International keyboards
-    <div id="menu-international" class="dropdown-content">
-    </div>
+  <label id="download-keymap-h" class="connect-enable">
+   下载keymap_all.h >
   </label>
-  <label data-open="#float-qmksettings" id="open-qmk" class="connect-enable">
-    QMK Settings
-  </label>
-  <label data-open="#float-matrix-tester" class="connect-enable">
-    Open Matrix Tester
-  </label>
-  <hr>
-  <label class="menuitem dropdown">
-    &gt; KB History
-    <div class="dropdown-content" id="history-kbis">
-    </div>
-  </label>
-  <label class="menuitem dropdown">
-    &gt; Sample .kbis - replace entire board functionality.
-    <div class="dropdown-content" id="sample-kbis">
-    </div>
-  </label>
-  <label class="menuitem dropdown">
-    &gt; Upload and Download
-    <div class="dropdown-content">
-      <label id="download-kbi" class="connect-enable">
-        &darr; Download .kbi file.
-      </label>
-      <label id="download-kbi-nomacro" class="connect-enable">
-        &darr; Download macro-less .kbi file.
-      </label>
-      <label id="download-vil" class="connect-enable">
-        &darr; Download .vil file.
-      </label>
-      <label id="download-vil-nomacro" class="connect-enable">
-        &darr; Download macro-less .vil file.
-      </label>
-      <label id="upload-file-float">
-        &uarr; Upload .kbi or .vil file.
-      </label>
-    </div>
-  </label>
-  <hr>
-  <label class="menuitem dropdown" for="">
-    &gt; Dev options
-    <div class="dropdown-content">
-      <label>
-        <input type="checkbox" class="check" data-toggle-name="do-disable-rclicks" data-default="false" data-toggle="disableRightClicks"/>
-        Disable context menus (enable 'inspect'/etc)
-      </label>
-      <label>
-        <input type="checkbox" class="check" data-toggle-name="do-playback" data-default="false" data-toggle="playback"/>
-        Playback a recording. (Overrides record)
-      </label>
-      <label>
-        <input type="checkbox" class="check" data-toggle-name="do-record" data-default="false" data-toggle="record"/>
-        Record for playback. (requires playback off)
-      </label>
-      <label id="download-keymap-h" class="connect-enable">
-        &darr; Download keymap_all.h
-      </label>
-    </div>
-  </label>
-  <label id="print-layers" class="connect-enable">
-    Print layer maps.
-  </label>
-  <label data-tip="show" id="open-tips">
-    Keybard Tips.
-  </label>
-  <label data-open="#about" id="open-about">
-    About KeyBard
-  </label>
+ </div>
+</label>
+<label id="print-layers" class="connect-enable">
+ 显示全部层键布局
+</label>
+<label data-tip="show" id="open-tips">
+ 使用说明
+</label>
+<label data-open="#about" id="open-about">
+ 关于JLKB编辑器
+</label>
   </div>
 </div>
-
           <div id="main-selection" class="on-connect">
-            <div class="main-select" data-mainboard="mainboard-container" id="select-mainboard">Keyboard Map</div>
-            <div class="main-select" data-mainboard="combo-container" id="select-combo">Combos</div>
-            <div class="main-select" data-mainboard="keyoverride-container" id="select-keyoverride">Key Overrides</div>
+            <a href="https://jlkb.jlkb.top/" target="_blank"><div class="main-select">官网</div></a>
+            <div class="main-select main-select-active" onclick="changeColor(this, '#fb8cd4')" data-mainboard="mainboard-container" id="select-mainboard">按键映射</div>
+            <div class="main-select" onclick="changeColor(this, '#73ff73')" data-mainboard="combo-container" id="select-combo">组合键</div>
+            <div class="main-select" onclick="changeColor(this, 'yellow')" data-mainboard="keyoverride-container" id="select-keyoverride">键值覆盖</div>
+<script>
+const originalColor = '#dff'; // 存储原始颜色
+const divs = document.querySelectorAll('.main-select');
+
+function changeColor(element, color) {
+  divs.forEach(div => {
+    div.classList.remove('active'); // 移除所有 div 的 active 类
+    div.style.backgroundColor = originalColor; // 将所有 div 恢复到原始颜色
+  });
+  element.classList.add('active'); // 当前点击的div 增加active类
+  element.style.backgroundColor = color; // 将点击的 div 改变颜色
+}
+</script>
           </div>
-          <div><button class="on-connect" id="commit">COMMIT CHANGES</button></div>
+          <div><button class="on-connect" id="commit">保存并应用更改</button></div>
         </div>
       </div>
     </div>
     <div id="topboard" class="on-connect">
       <div class="main-container" id="mainboard-container">
-  <div id="layer-selection"></div>
-  <div id="mainboard-box">
-    <div class="top-left">
-      <div class="dropdown board-sel">
-        <div>Layer operations</div>
-        <label class="dropdown-content" style="width: 200px;">
-          <label class="dropdown">
-            Apply a sample layer
-            <div id="sample-layers" class="dropdown-content">
-            </div>
-          </label>
-          <label data-sample-kb="copy-layer">
-            Copy layer to clipboard.
-          </label>
-          <label data-sample-kb="paste-layer">
-            Paste layer from clipboard.
-          </label>
-          <label data-sample-kb="fill" data-sample-key="KC_NO">
-            Wipe and disable all keys.
-          </label>
-          <label data-sample-kb="fill" data-sample-key="KC_TRNS">
-            Wipe and change all keys to transparent.
-          </label>
-          <label data-sample-kb="fillEmpty" data-sample-key="KC_TRNS">
-            Change disabled keys to transparent.
-          </label>
-        </label>
+ <div id="layer-selection"></div>
+ <div id="mainboard-box">
+  <div class="top-left">
+   <div class="dropdown board-sel">
+    <div>图层操作</div>
+    <label class="dropdown-content" style="width: 200px;">
+     <label class="dropdown">
+      应用示例图层 >
+      <div id="sample-layers" class="dropdown-content">
       </div>
-    </div>
-    <div id="mainboard"></div>
+     </label>
+     <label data-sample-kb="copy-layer">
+      复制图层到剪贴板。
+     </label>
+     <label data-sample-kb="paste-layer">
+      从剪贴板粘贴图层。
+     </label>
+     <label data-sample-kb="fill" data-sample-key="KC_NO">
+      擦除并禁用所有按键。
+     </label>
+     <label data-sample-kb="fill" data-sample-key="KC_TRNS">
+      擦除并将所有按键更改为透明。
+     </label>
+     <label data-sample-kb="fillEmpty" data-sample-key="KC_TRNS">
+      将禁用的按键更改为透明。
+     </label>
+    </label>
+   </div>
   </div>
+  <div id="mainboard"></div>
+ </div>
 </div>
 <div class="main-container" id="combo-container">
 </div>
 <div class="main-container" id="keyoverride-container">
-  <table id="keyoverride-table" cellspacing="0" cellpadding="2">
+ <table id="keyoverride-table" cellspacing="0" cellpadding="2">
 <thead>
  <tr>
-   <th></th>
-   <th>In</th>
-   <th>Out</th>
-   <th></th>
-   <th><div class="ko-modcol">Mod masks</div></th>
-   <th>Layers</th>
-   <th>Options</th>
+  <th></th>
+  <th>输入</th>
+  <th>输出</th>
+  <th></th>
+  <th><div class="ko-modcol">修饰符掩码</div></th>
+  <th>图层</th>
+  <th>选项</th>
  </tr>
 </thead>
 <tbody id="keyoverride-table">
@@ -259,47 +271,47 @@
 
 </div>
 
-    </div>
+   </div>
     <div id="board-selection" class="on-connect" style="z-index: 200;">
-  <div class="board-sel" data-board="qwerty">QWERTY</div>
-  <div class="board-sel" data-board="international">International</div>
-  <div class="board-sel" data-board="custom">Mouse and Special Keys</div>
-  <div class="board-sel" data-board="layer">Layers</div>
-  <div class="board-sel" data-board="macro">Macros</div>
-  <div class="board-sel" data-board="tapdance">Tap dances</div>
-  <div class="board-sel" data-board="modtaps">Mod Hold, Tap Keys</div>
-  <div class="board-sel" data-board="quantum">QMK Keys</div>
-  <div class="dropdown board-sel-unusual" id="menu-top">
-    <div> &uarr; Unusual boards &uarr; </div>
-    <div class="dropdown-content dropup" style="right: 0px;">
-      <label class="board-sel" data-board="media">App, Media</label>
-      <label class="board-sel" data-board="audio">Audio and Haptics</label>
-      <label class="board-sel" data-board="backlights">Backlights</label>
-      <label class="board-sel" data-board="magic">'Magic' keys</label>
-      <label class="board-sel" data-board="midi">MIDI</label>
-      <label class="board-sel" data-board="steno">Steno</label>
-    </div>
+ <div class="board-sel" data-board="qwerty">QWERTY</div>
+ <div class="board-sel" data-board="international">国际</div>
+ <div class="board-sel" data-board="custom">鼠标、特殊按键</div>
+ <div class="board-sel" data-board="layer">图层</div>
+ <div class="board-sel" data-board="macro">宏</div>
+ <div class="board-sel" data-board="tapdance">连击舞</div>
+ <div class="board-sel" data-board="modtaps">修饰符保持，点击按键</div>
+ <div class="board-sel" data-board="quantum">QMK 按键</div>
+ <div class="dropdown board-sel-unusual" id="menu-top">
+  <div> &uarr;不常用的键 &uarr; </div>
+  <div class="dropdown-content dropup" style="right: 0px;">
+   <label class="board-sel" data-board="media">应用，媒体</label>
+   <label class="board-sel" data-board="audio">音频和触觉反馈</label>
+   <label class="board-sel" data-board="backlights">背光</label>
+   <label class="board-sel" data-board="magic">“魔法”按键</label>
+   <label class="board-sel" data-board="midi">MIDI</label>
+   <label class="board-sel" data-board="steno">速记</label>
   </div>
-  <div class="board-sel-end"></div>
+ </div>
+ <div class="board-sel-end"></div>
 </div>
 <div id="allboards" class="on-connect">
-  <div class="board-map" data-board="qwerty"><div class="kb-board-mods">
-  <div class="kb-group">
-    <div class="kb-row kb-mods kb-modifiers" data-title="All selected Mods will be applied to keys assigned.">
-      <div class="kbdesc extra-large">Mods to apply:</div>
-      <div class="key key-mod kb-key medium" data-modifier="SHIFT">Shift</div>
-      <div class="key key-mod kb-key medium" data-modifier="CTRL">Ctrl</div>
-      <div class="key key-mod kb-key medium" data-modifier="GUI">GUI</div>
-      <div class="key key-mod kb-key medium" data-modifier="ALT">Alt</div>
-    </div>
+ <div class="board-map" data-board="qwerty"><div class="kb-board-mods">
+ <div class="kb-group">
+  <div class="kb-row kb-mods kb-modifiers" data-title="所有选定的修饰符将应用于分配的按键。">
+   <div class="kbdesc extra-large">修饰键</div>
+   <div class="key key-mod kb-key medium" data-modifier="SHIFT">Shift</div>
+   <div class="key key-mod kb-key medium" data-modifier="CTRL">Ctrl</div>
+   <div class="key key-mod kb-key medium" data-modifier="GUI">GUI</div>
+   <div class="key key-mod kb-key medium" data-modifier="ALT">Alt</div>
   </div>
-  <div class="kb-group">
-    <div class="kb-row kb-mods">
-      <div class="kbdesc large">Special:</div>
-      <div class="key kb-key" data-bind="key" data-key="KC_NO">&nbsp;</div>
-      <div class="key kb-key" data-bind="key" data-key="KC_TRNS">▽</div>
-    </div>
+ </div>
+ <div class="kb-group">
+  <div class="kb-row kb-mods">
+   <div class="kbdesc large">特殊键</div>
+   <div class="key kb-key" data-bind="key" data-key="KC_NO">&nbsp;</div>
+   <div class="key kb-key" data-bind="key" data-key="KC_TRNS">▽</div>
   </div>
+ </div>
 </div>
 
 <div class="kb-board">
@@ -383,8 +395,8 @@
       <div class="key kb-key" data-bind="keymask" data-key="KC_B" data-shifted="B">b</div>
       <div class="key kb-key" data-bind="keymask" data-key="KC_N" data-shifted="N">n</div>
       <div class="key kb-key" data-bind="keymask" data-key="KC_M" data-shifted="M">m</div>
-      <div class="key kb-key" data-bind="keymask" data-key="KC_COMMA" data-shifted="<">&lt;<br>,</div>
-      <div class="key kb-key" data-bind="keymask" data-key="KC_DOT" data-shifted=">">&gt;<br>.</div>
+      <div class="key kb-key" data-bind="keymask" data-key="KC_COMMA" data-shifted="<"> > <br>,</div>
+      <div class="key kb-key" data-bind="keymask" data-key="KC_DOT" data-shifted=">"> > <br>.</div>
       <div class="key kb-key" data-bind="keymask" data-key="KC_SLASH" data-shifted="?">?<br>/</div>
       <div class="key kb-key extra-large" data-bind="keymask" data-key="KC_RSHIFT">Shift</div>
     </div>
@@ -667,7 +679,7 @@
   <div class="board-map" data-board="international"><div class="kb-row"><div class="kb-board-mods">
   <div class="kb-group">
     <div class="kb-row kb-mods kb-modifiers" data-title="All selected Mods will be applied to keys assigned.">
-      <div class="kbdesc extra-large">Mods to apply:</div>
+      <div class="kbdesc extra-large">修饰键</div>
       <div class="key key-mod kb-key medium" data-modifier="SHIFT">Shift</div>
       <div class="key key-mod kb-key medium" data-modifier="CTRL">Ctrl</div>
       <div class="key key-mod kb-key medium" data-modifier="GUI">GUI</div>
@@ -676,7 +688,7 @@
   </div>
   <div class="kb-group">
     <div class="kb-row kb-mods">
-      <div class="kbdesc large">Special:</div>
+      <div class="kbdesc large">特殊键</div>
       <div class="key kb-key" data-bind="key" data-key="KC_NO">&nbsp;</div>
       <div class="key kb-key" data-bind="key" data-key="KC_TRNS">▽</div>
     </div>
@@ -1244,179 +1256,165 @@
 </div>
 
   <div id="float-manual-key" class="floater closeable" style="width: 300px;">
-  <div class="topright">
-    <button class="close">Close</button>
+ <div class="topright">
+  <button class="close">关闭</button>
+ </div>
+ 输入正确键码<br>
+ 或对应十六进制或十进制(大写)：
+ <br>
+ 如：KC_G / 0x0A / 10
+ <br>
+ <input type="text" style="width: 100%;" id="manual-key">
+ <span id="manual-output"></span>
+ <br>
+ 按Enter保存。
+</div>
+
+ <div id="about" class="floater closeable" style="display: none; height: 60%;">
+ JLKB键盘映射编辑器
+ <div class="topright">
+  <button class="close" data-action="close">关闭</button>
+ </div>
+ <p>
+  JLKB键盘编辑器说明
+ </p>
+ <p>
+  JLKB键盘编辑器说明为html/css开发，页面加载速度更快。
+  <ol>
+   <li>在菜单中启用“录制”。</li>
+   <li>启动并选择您的键盘。</li>
+   <li>在菜单中启用“播放”。</li>
+   <li>重新加载页面 - 现在应该几乎是即时的。</li>
+   <li>（注意：此时不会执行键盘更改。）</li>
+  </ol>
+ </p>
+</div>
+
+ <div id="float-tips" class="floater closeable" style="min-width: 300px;">
+  <div class="tiptop">
+   <button data-tip="prev">上一个提示</button>
+   <button data-tip="hide">关闭</button>
+   <button data-tip="next">下一个提示</button>
   </div>
-  Enter key by code or hex:
-  <br>
-  <input type="text" style="width: 100%;" id="manual-key">
-  <span id="manual-output"></span>
-  <br>
-  Press Enter to save.
-</div>
+  <div id="tiptip">
+   <div class="tip">
+    <h3>按键快速输入选项</h3>
+    <p>
+     如果在键盘映射中右键不起作用，不能显示有效的菜单可能是你的浏览器扩展或脚本阻止了。
+    </p>
+    <p>
+     你可可以快速的分配和编辑键的代码，清除或恢复他们。
+    </p>
+    <p>
+     这也适用于组合键、按键覆盖、宏等大多数按键！
+    </p>
+    <img src="images/tip-contextmenu.png" style="width: 300px;">
+   </div>
+   <div class="tip">
+    <h3>图层名称</h3>
+    <p>
+     您可以在Keybard中为图层分配名称！这些都是内存中的，并保存在下载时的kbi文件中，因此vial 等其他应用程序是无法识别或显示图层名称的。
+    </p>
+    <p>
+     要重命名图层，请在对应层编码选项卡处右键单击，然后输入其名称！要清除不输入任何字符即可。
+    </p>
+    <img src="images/tip-layername.png" style="width: 400px;">
+   </div>
+   <div class="tip">
+    <h3>读取键盘输入</h3>
+    <p>
+     开启后可以直接读取键盘输入的键，不用鼠标在下面选择，可以更快速的设置键盘。
+    </p>
+    <p>
+     奖励：与串行分配配合得非常好！
+    </p>
+    <img src="images/tip-typebind.png" style="width: 300px;">
+   </div>
+   <div class="tip">
+    <h3>快速输入设置</h3>
+    <p>
+     开启后可以更快速的设置各个按键，开启后设置完一个键自动跳转到下一个键开始设置。
+    </p>
+    <img src="images/tip-serial.png" style="width: 60vw; height: 30vh;">
+   </div>
+   <div class="tip">
+    <h3>展示图层映射</h3>
+    <p>
+     它会打开一个新窗口，包含了所有非空图层。您可以随意删除它们，并打印出出来方便参考！
+    </p>
+    <img src="images/tip-print.png" style="width: 500px;">
+   </div>
 
-  <div id="about" class="floater closeable" style="display: none; height: 60%;">
-  KeyBard, the Svalboard Keymap Editor
-  <div class="topright">
-    <button class="close" data-action="close">Close</button>
   </div>
-  <p>
-    TODO: populate this with more help.
-  </p>
-  <p>
-    Developing for html/css - Make it super fast to reload the page so you
-    can see changes w/o reconnecting your keyboard each time.
-    <ol>
-      <li>Enable 'Record' in menu.</li>
-      <li>Launch, and select your keyboard. </li>
-      <li>Enable 'Playback' in menu.</li>
-      <li>Reload page - It should now be near instant.</li>
-      <li>(Note: Keyboard changes will not be performed at this point.)</li>
-    </ol>
-  </p>
+ </div>
 </div>
 
-  <div id="float-tips" class="floater closeable" style="min-width: 300px;">
-    <div class="tiptop">
-      <button data-tip="prev">Previous Tip</button>
-      <button data-tip="hide">Close</button>
-      <button data-tip="next">Next Tip</button>
-    </div>
-    <div id="tiptip">
-      <div class="tip">
-  <h3>Quick actions for keys</h3>
-  <p>
-    Did you know: R-Clicking a key in your keyboard map will show you some easy
-    shortcuts! If this doesn't work, be aware that the most common cause is a
-    browser extension intended to prevent websites from hijacking context menus
-  </p>
-  <p>
-    You can assign and edit an unused macro or tapdance instantly, enter a
-    key code by its raw QMK value, clear or disable it, or revert the change
-    before committing it!
-  </p>
-  <p>
-    This also works for most keys you can bind in combos, key overrides, macros,
-    and tap dance!
-  </p>
-  <img src="images/tip-contextmenu.png"/ style="width: 300px;">
-</div>
-<div class="tip">
-  <h3>Layer names</h3>
-  <p>
-    Did you know: You can assign cosmetic names to your layers in Keybard!
-    These are in-memory, and saved in your .kbi file on download, so other apps
-    such as vial will not recognize or show layer names.
-  </p>
-  <p>
-    To rename a layer, r-click its number in the layer selection tab, and
-    enter its name! To clear, just submit an empty string at the prompt.
-  </p>
-  <img src="images/tip-layername.png"/ style="width: 400px;">
-</div>
-<div class="tip">
-  <h3>TypeBind</h3>
-  <p>
-    Did you know: While normally you click a key in your keyboard, then a key
-    in the example boards to bind it to - you can use your keyboard to bind
-    it to a key! Enable "Typing binds a key" in the menu, then click a key
-    to assign to, then just type the key on your keyboard!
-  </p>
-  <p>
-    Bonus: works exceptionally well with Serial Assignment!
-  </p>
-  <img src="images/tip-typebind.png"/ style="width: 300px;">
-</div>
-<div class="tip">
-  <h3>Serial Assignment</h3>
-  <p>
-    Did you know: You don't have to click each key one by one to assign to
-    them. Select a serial assignment method under MENU-&gt; Serial Assignment,
-    and select a key. When it's bound to a new key, the active key to select
-    jumps to the next in its series.
-  </p>
-  <img src="images/tip-serial.png"/ style="width: 60vw; height: 30vh;">
-</div>
-<div class="tip">
-  <h3>Printing layer maps</h3>
-  <p>
-    Did you know: While the default UI is annoying to print, Keybard has a
-    "print" option in the menu that opens a new window with all your
-    non-empty layers. You can remove them at will, and print out an easy
-    reference sheet!
-  </p>
-  <img src="images/tip-print.png"/ style="width: 500px;">
-</div>
-
-    </div>
-  </div>
-</div>
-
-    <div id="float-macro" class="floater closeable" style="width: 80vw; min-height: 120px;">
+ <div id="float-macro" class="floater closeable" style="width: 80vw; min-height: 120px;">
   <div class="button-row">
-    <div id="float-macro-name">M?</div>
-    <div class="fill"></div>
-    <button class="macro-edit-button" data-macro-add="text" data-value="">Text</button>
-    <button class="macro-edit-button" data-macro-add="tap" data-value="KC_LSHIFT">Tap</button>
-    <button class="macro-edit-button" data-macro-add="down" data-value="KC_LSHIFT">Keydown</button>
-    <button class="macro-edit-button" data-macro-add="up" data-value="KC_LSHIFT">Keyup</button>
-    <button class="macro-edit-button" data-macro-add="delay" data-value="300">Delay</button>
-    <div class="fill"></div>
-    <div class="topright">
-      <button id="save-macro">Save</button>
-      <button class="close">Close</button>
-    </div>
+   <div id="float-macro-name">M?</div>
+   <div class="fill"></div>
+   <button class="macro-edit-button" data-macro-add="text" data-value="">文本</button>
+   <button class="macro-edit-button" data-macro-add="tap" data-value="KC_LSHIFT">点击</button>
+   <button class="macro-edit-button" data-macro-add="down" data-value="KC_LSHIFT">按下</button>
+   <button class="macro-edit-button" data-macro-add="up" data-value="KC_LSHIFT">弹起</button>
+   <button class="macro-edit-button" data-macro-add="delay" data-value="300">延迟</button>
+   <div class="fill"></div>
+   <div class="topright">
+    <button id="save-macro">保存</button>
+    <button class="close">关闭</button>
+   </div>
   </div>
   <div id="float-macro-render" class="kb-row kb-row-wrap">
   </div>
   <div class="fill"></div>
-</div>
+ </div>
 
-    <div id="float-tapdance" class="floater closeable">
+ <div id="float-tapdance" class="floater closeable">
   <div class="button-row">
-    <div id="float-tapdance-name">TD(?)</div>
-    <div class="topright">
-      <button id="float-tapdance-save">Save</button>
-      <button class="close" data-action="close">Close</button>
-    </div>
+   <div id="float-tapdance-name">TD(?)</div>
+   <div class="topright">
+    <button id="float-tapdance-save">保存</button>
+    <button class="close" data-action="close">关闭</button>
+   </div>
   </div>
   <div class="float-tapdance-row kb-row">
-    <div class="kbdesc">Tap:</div>
-    <div id="float-tapdance-tap">
-    </div>
+   <div class="kbdesc">点击：</div>
+   <div id="float-tapdance-tap">
+   </div>
   </div>
   <div class="float-tapdance-row kb-row">
-    <div class="kbdesc">Hold:</div>
-    <div id="float-tapdance-hold">
-    </div>
+   <div class="kbdesc">保持：</div>
+   <div id="float-tapdance-hold">
+   </div>
   </div>
   <div class="float-tapdance-row kb-row">
-    <div class="kbdesc">Double-tap:</div>
-    <div id="float-tapdance-doubletap">
-    </div>
+   <div class="kbdesc">双击：</div>
+   <div id="float-tapdance-doubletap">
+   </div>
   </div>
   <div class="float-tapdance-row kb-row">
-    <div class="kbdesc">Tap-hold:</div>
-    <div id="float-tapdance-taphold">
-    </div>
+   <div class="kbdesc">点击保持：</div>
+   <div id="float-tapdance-taphold">
+   </div>
   </div>
   <div class="float-tapdance-row kb-row">
-    <div class="kbdesc">Tap MS</div>
-    <div id="float-tapdance-tapms">
-    </div>
+   <div class="kbdesc">点击毫秒</div>
+   <div id="float-tapdance-tapms">
+   </div>
   </div>
-</div>
+ </div>
 
-    <div id="allmenus"></div>
-    <div id="panecontainer"></div>
-    <div id="launch">
-  LAUNCH KEYBARD
-</div>
+ <div id="allmenus"></div>
+ <div id="panecontainer"></div>
+ <div id="launch">
+  连接JLKB键盘
+ </div>
+ <a href="https://jlkb.jlkb.top/" target="_blank"><div class="main-select">官网</div></a>
 
-    <div id="nosupport" style="display: none;">
-  Your browser does not support WEBHID.<br>
-  Try the latest versions of Chrome (or Chromium), and MS Edge.
-</div>
+ <div id="nosupport" style="display: none;">
+  您的浏览器不支持 WEBHID。<br>
+  尝试最新版本的Chrome或微软Edge。
+ </div>
 
 
     <!-- MUST BE LAST -->

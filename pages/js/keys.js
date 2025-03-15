@@ -68,7 +68,7 @@ addInitializer('load', () => {
     // 32 max layers.
     for (let i = 0; i < 32; i++) {
       for (const k of ['MO', 'DF', 'TG', 'TT', 'OSL', 'TO']) {
-        KEYMAP[`${k}(${i})`].type = 'layer';
+        KEYMAP[`${k}(${i})`].type = '层';
         KEYMAP[`${k}(${i})`].subtype = k;
         KEYMAP[`${k}(${i})`].idx = i;
       }
@@ -232,7 +232,7 @@ addInitializer('load', () => {
     m = keystr.match(/^(MO|DF|TG|TT|OSL|TO)\((\w+)\)$/);
     if (m) {
       return {
-        type: 'layer', mask: m[1], idx: parseInt(m[2]),
+        type: '层', mask: m[1], idx: parseInt(m[2]),
       };
     }
     // Macros: M0 ... M50
