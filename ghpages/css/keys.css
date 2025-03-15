@@ -20,12 +20,14 @@
   position: absolute;
   top: 0px;
   left: 0px;
+  height: 0px;
+  width: 0px;
 }
 
 .key {
   --key-border-radius: 4px;
   position: relative;
-  background-color: #fff;
+  background-color: #fdd;
   border: 1px solid black;
   border-radius: var(--key-border-radius);
   min-height: 40px;
@@ -100,7 +102,8 @@
 }
 
 .key.active,.key.active .key-midt,.key.active .key-midb {
-  background-color: #fdd !important;
+  background-color: #148f8f !important;
+  color: white;
 }
 
 /* kb-mods: the modifier keys. Instead of clicking ctrl in the keyboard to have

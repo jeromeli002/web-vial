@@ -1,4 +1,4 @@
-// kbdisplay.js
+// mainboard.js
 //
 ////////////////////////////////////
 //
@@ -351,7 +351,7 @@ addInitializer('connected', () => {
                 class: 'no-print',
                 onclick: 'this.parentElement.parentElement.replaceWith("");',
               },
-              "Remove this layer"
+              "删除此层"
             ),
           ]
         ),

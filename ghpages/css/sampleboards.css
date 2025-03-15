@@ -49,7 +49,8 @@
   margin-left: 4px;
   background-color: #ddd;
   color: black;
-  font-size: 8pt;
+  font-size: 14px;
+  text-align: center;
 }
 
 .board-sel-unusual {
@@ -61,7 +62,7 @@
   margin-left: 4px;
   background-color: #bbb;
   color: black;
-  font-size: 8pt;
+  font-size: 14px;
 }
 
 .board-sel:hover {

@@ -46,12 +46,6 @@ Object.assign(KBINFO, DEFAULT_KBINFO);
 function setActiveKBINFO(kbinfo, cause) {
   if (!('cosmetic' in kbinfo)) {
     kbinfo.cosmetic = getSaved('names', {
-      layer: {
-        '0': 'default',
-        '4': 'NAS',
-        '5': 'Fn Keys',
-        '15': 'Mouse',
-      }
     });
   }
   // TODO: Other corrections?

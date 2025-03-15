@@ -46,7 +46,7 @@ function makeEditableName(editable, type, index) {
     }
     const local = getSaved('names', {});
     ev.preventDefault();
-    const newname = prompt('New name for ' + type + ' ' + name);
+    const newname = prompt('重命名 ' + type + ' ' + name);
     if (newname !== null) {
       if (newname !== '') {
         if (!(type in KBINFO.cosmetic)) {
