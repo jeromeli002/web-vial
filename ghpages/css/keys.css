@@ -40,6 +40,17 @@
   text-align: center;
   line-height: normal;
   white-space: pre;
+  transition: transform 0.3s ease;
+}
+.key:hover {
+  background-color: #fb8cd4;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px 3px rgb(4 253 230 / 70%);
+}
+.key.active,.key.active .key-midt,.key.active .key-midb {
+  background-color: #148f8f !important;
+  color: white;
+  box-shadow: 0 0 10px 3px rgb(4 253 230 / 70%);
 }
 
 .key-attop {
@@ -95,15 +106,6 @@
   left: 0px;
   border-bottom-left-radius: var(--key-border-radius);
   border-bottom-right-radius: var(--key-border-radius);
-}
-
-.key:hover {
-  background-color: #ffd;
-}
-
-.key.active,.key.active .key-midt,.key.active .key-midb {
-  background-color: #148f8f !important;
-  color: white;
 }
 
 /* kb-mods: the modifier keys. Instead of clicking ctrl in the keyboard to have

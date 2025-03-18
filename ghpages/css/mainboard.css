@@ -1,5 +1,56 @@
 /* boards.css, for rendering the different boards. */
 
+a{
+  text-decoration: none;
+  color:#000;
+  display: flex;
+  justify-content: space-evenly;
+}
+.fa{
+  text-decoration: none;
+  color:#000;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 40px 80px 40px 80px;
+}
+.td{
+    //padding: 20px 30px 20px 30px;
+    background-color: #f3f3f3;
+    border: 4px solid #ffadad;
+    font-size: 100%;
+    font-weight: bold;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+.td:hover{
+   background: #fdd;
+   color: #251542;
+   transform: scale(1.2);
+   box-shadow: 0 0 10px 3px rgb(4 253 230 / 70%);
+}
+
+.spanm{
+    background-color: #dfd;
+    padding: 6px 20px 6px 20px;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+.spanm:hover{
+    background-color: #dfd;
+    box-shadow: 0 0 5px 2px rgb(4 253 230 / 70%);
+    transform: scale(1.8);
+}
+.span{
+  padding: 40px 60px 40px 60px;
+}
+.jlkb{
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
 #layer-selection {
   flex: 0 0 content;
   display: flex;
@@ -11,8 +62,8 @@
   margin-bottom: 4px;
   width: 100%;
   height: 30px;
+  padding-top: 10px;
 }
-
 #layer-selection .layer {
     white-space: nowrap;
     background-color: #ddffff;
@@ -26,14 +77,24 @@
     cursor: pointer;
     height: 40px;
     min-width: 40px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
-
+#layer-selection .layer:hover{
+    transform: scale(1.2);
+    box-shadow: 0 0 10px 3px rgb(4 253 230 / 70%);
+}
 #layer-selection .layer.selected {
     background-color: #148f8f;
     color: #ffffff;
     font-size: 16px;
+    box-shadow: 0 0 10px 3px rgb(4 253 230 / 70%);
 }
-
+#layer-selection .layer:hover {
+    background-color: #fb8cd4;
+    color: #ffffff;
+    font-size: 16px;
+}
 
 #layer-selection .fill {
   flex: 1 1 auto;
@@ -66,7 +127,8 @@
   width: 100vw;
   justify-content: center;
   margin: 0 auto;
-  display: flex
+  display: flex;
+  padding-top: 10px;
 }
 
 #mainboard {
@@ -87,11 +149,17 @@
     background: #ddffff;
     width: 120px;
     text-align: center;
+    transition: transform 0.3s ease;
 }
 .main-select-active  {
     background: #fb8cd4;
 }
-
+.main-select:hover{
+   background: #148f8f;
+   color: #251542;
+   transform: scale(1.1);
+   box-shadow: 0 0 10px 3px rgb(4 253 230 / 70%);
+}
 .main-select.active {
   background-color: yellow;
 }
@@ -100,6 +168,7 @@
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
+  padding-top: 20px;
 }
 
 .combo-group {
@@ -114,6 +183,7 @@
 #keyoverride-table {
   table-layout: fixed;
   margin: 0em 0em 5em 1em;
+  padding-top: 10px;
 }
 
 .ko-row .key {
